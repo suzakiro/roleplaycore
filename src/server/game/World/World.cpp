@@ -611,6 +611,7 @@ void World::LoadConfigSettings(bool reload)
         { .Name = "Support.BugsEnabled"sv, .DefaultValue = false, .Index = CONFIG_SUPPORT_BUGS_ENABLED },
         { .Name = "Support.ComplaintsEnabled"sv, .DefaultValue = false, .Index = CONFIG_SUPPORT_COMPLAINTS_ENABLED },
         { .Name = "Support.SuggestionsEnabled"sv, .DefaultValue = false, .Index = CONFIG_SUPPORT_SUGGESTIONS_ENABLED },
+        { .Name = "Housing.Enabled"sv, .DefaultValue = true, .Index = CONFIG_HOUSING_ENABLED },
         { .Name = "DurabilityLoss.InPvP"sv, .DefaultValue = false, .Index = CONFIG_DURABILITY_LOSS_IN_PVP },
         { .Name = "AddonChannel"sv, .DefaultValue = true, .Index = CONFIG_ADDON_CHANNEL },
         { .Name = "CleanCharacterDB"sv, .DefaultValue = false, .Index = CONFIG_CLEAN_CHARACTER_DB },
@@ -1210,7 +1211,7 @@ void World::LoadConfigSettings(bool reload)
     _gameRules =
     {
         { .Rule = ::GameRule::TransmogEnabled, .Value = true },
-        { .Rule = ::GameRule::HousingEnabled, .Value = true }
+        { .Rule = ::GameRule::HousingEnabled, .Value = m_bool_configs[CONFIG_HOUSING_ENABLED] }
     };
 
     if (reload)

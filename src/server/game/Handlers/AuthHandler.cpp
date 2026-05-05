@@ -142,6 +142,8 @@ void WorldSession::SendFeatureSystemStatusGlueScreen()
 
     SendPacket(features.Write());
 
+    std::string_view housingEnabled = sWorld->getBoolConfig(CONFIG_HOUSING_ENABLED) ? "1"sv : "0"sv;
+
     WorldPackets::System::MirrorVarSingle vars[] =
     {
         { "raidLockoutExtendEnabled"sv, "1"sv },
@@ -151,13 +153,13 @@ void WorldSession::SendFeatureSystemStatusGlueScreen()
         { "bpayStoreEnable"sv, "0"sv },
         { "recentAlliesEnabledClient"sv, "0"sv },
         { "browserEnabled"sv, "0"sv },
-        { "housingEnableCreateGuildNeighborhood"sv, "0"sv },
-        { "housingEnableDeleteHouse"sv, "0"sv },
-        { "housingServiceEnabled"sv, "0"sv },
-        { "housingEnableMoveHouse"sv, "0"sv },
-        { "housingEnableCreateCharterNeighborhood"sv, "0"sv },
-        { "housingEnableBuyHouse"sv, "0"sv },
-        { "housingMarketEnabled"sv, "0"sv },
+        { "housingEnableCreateGuildNeighborhood"sv, housingEnabled },
+        { "housingEnableDeleteHouse"sv, housingEnabled },
+        { "housingServiceEnabled"sv, housingEnabled },
+        { "housingEnableMoveHouse"sv, housingEnabled },
+        { "housingEnableCreateCharterNeighborhood"sv, housingEnabled },
+        { "housingEnableBuyHouse"sv, housingEnabled },
+        { "housingMarketEnabled"sv, housingEnabled },
     };
 
     WorldPackets::System::MirrorVars variables;

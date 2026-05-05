@@ -2316,6 +2316,22 @@ Support.SuggestionsEnabled = 0
 ###################################################################################################
 
 ###################################################################################################
+# HOUSING SETTINGS
+#
+#    Housing.Enabled
+#        Description: Enables the client-side housing feature flags sent during login.
+#                     This opens the Logis/Housing microbar entry and related housing
+#                     service UI gates, but does not by itself implement gameplay
+#                     handlers for neighborhoods, plots, rooms, fixtures, or decor.
+#        Default:     1 - (Enabled)
+#                     0 - (Disabled)
+
+Housing.Enabled = 1
+
+#
+###################################################################################################
+
+###################################################################################################
 # VISIBILITY AND DISTANCES
 #
 #    Visibility.GroupMode
